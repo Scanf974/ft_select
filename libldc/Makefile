@@ -5,37 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/18 14:56:01 by bsautron         ###   ########.fr        #
+#    Created: 2015/02/18 12:21:35 by bsautron          #+#    #+#              #
+#    Updated: 2015/02/18 13:22:53 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-NAME = ft_select
-SRC = main.c \
-	  ft_get_win_size.c \
-	  ft_tcg.c
+SRC = ft_lstdc_rinit.c \
+	  ft_lstdc_create.c \
+	  ft_lstdc_add.c \
+	  ft_lstdc_add_back.c \
+	  ft_lstdc_delfirst.c \
+	  ft_lstdc_print.c
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wextra -Wall -Werror
-LIB = -L./libft -lft
-LIBLDC = -L./libldc -lldc
+NAME = libldc.a
+CFLAGS = -Wall -Wextra -Werror
 
-all: lft lldc $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "\033[31m"
-	@$(CC) -o $@ $^ $(LIB) $(LIBLDC) -lncurses
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 	@echo "\033[37m"
 
-lft:
-	make -C libft/
-
-lldc:
-	make -C libldc/
-
 %.o: %.c
-	@echo "\033[33m   $^"
-	@$(CC) -I includes/ -c $^ 
+	@echo "\033[31m   $^"
+	@$(CC) $(CFLAGS) -I ../includes/ -c $^
 
 clean:
 	rm -f $(OBJ)

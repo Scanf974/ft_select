@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 14:25:51 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/18 14:55:37 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,46 +47,29 @@ int		main(int argc, char **argv)
 	char			*res;
 	t_win			win;
 
-	(void)argc;
-	list = ft_getargv(argv);
-	if ((name_term = getenv("TERM")) == NULL)
-		return (-1);
-	if (tgetent(NULL, name_term) == -1)
-		return (-1);
-	if (tcgetattr(0, &term) == -1)
-		return (-1);
-
-	term.c_lflag &= ~(ICANON);
-	term.c_lflag &= ~(ECHO);
-	term.c_cc[VMIN] = 1;
-	term.c_cc[VTIME] = 0;
-	if (tcsetattr(0, TCSADRAIN, &term) == -1)
-		return (-1);
-
-	res = tgetstr("cl", NULL);
-	tputs(res, 0, ft_outc);
-	ft_lstdc_print(list);
-/*
-	while (69)
+	if (argc > 1)
 	{
-		read(0, buf, 3);
-		if (buf[0] == '\033')
+		list = ft_getargv(argv);
+		ft_tcg(0);
+		res = tgetstr("cl", NULL);
+		tputs(res, 0, ft_outc);
+		ft_lstdc_print(list);
+		while (69)
 		{
-			if (buf[2] == 'A')
-				res = tgetstr("up", NULL);
-			if (buf[2] == 'B')
-				res = tgetstr("do", NULL);
-			if (buf[2] == 'D')
-				res = tgetstr("le", NULL);
-			if (buf[2] == 'C')
-				res = tgetstr("nd", NULL);
-			tputs(res, 0, ft_outc);
+			read(0, buf, 3);
+			if (buf[0] == '\033')
+			{
+				if (buf[2] == 'A')
+					res = tgetstr("up", NULL);
+				if (buf[2] == 'B')
+					res = tgetstr("do", NULL);
+				if (buf[2] == 'D')
+					res = tgetstr("le", NULL);
+				if (buf[2] == 'C')
+					res = tgetstr("nd", NULL);
+				tputs(res, 0, ft_outc);
+			}
 		}
-		else
-		{
-			win = ft_get_win_size();
-			dprintf(1, "col = %d, haut = %d\n", win.width, win.height);
-		}
-	}*/
+	}
 	return (0);
 }
