@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 08:29:43 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/18 10:27:47 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int		ft_outc(int c)
 	ft_putchar(c);
 	return (0);
 }
-
 int		main(void)
 {
 	char			*name_term;
 	struct termios	term;
 	char			buf[3];
 	char			*res;
+	t_win			win;
 
 	if ((name_term = getenv("TERM")) == NULL)
 		return (-1);
@@ -47,13 +47,19 @@ int		main(void)
 		if (buf[0] == '\033')
 		{
 			if (buf[2] == 'A')
-			{
-				if ((res = tgetstr("cl", NULL)) == NULL)
-					return (-1);
-				tputs(res, 0, ft_outc);
-			}
+				res = tgetstr("up", NULL);
 			if (buf[2] == 'B')
-				ft_putendl("fleche du bas");
+				res = tgetstr("do", NULL);
+			if (buf[2] == 'D')
+				res = tgetstr("le", NULL);
+			if (buf[2] == 'C')
+				res = tgetstr("nd", NULL);
+			tputs(res, 0, ft_outc);
+		}
+		else
+		{
+			win = ft_get_win_size();
+			dprintf(1, "col = %d, haut = %d\n", win.width, win.height);
 		}
 	}
 

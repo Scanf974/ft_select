@@ -6,13 +6,14 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/18 07:47:45 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/18 10:27:05 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 NAME = ft_select
-SRC = main.c
+SRC = main.c \
+	  ft_get_win_size.c
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wextra -Wall -Werror
 LIB = -L./libft -lft
