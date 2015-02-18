@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 14:17:57 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/18 14:25:51 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,37 @@ int		ft_outc(int c)
 	ft_putchar(c);
 	return (0);
 }
-int		main(int argc, char **argv)
+
+t_lstrep	*ft_getargv(char **argv)
 {
 	t_lstrep	*yo;
 	int			i;
 
 	yo = NULL;
-	if (argc > 1)
+	i = 1;
+	while (argv[i])
 	{
-		i = 1;
-		while (argv[i])
-		{
-			ft_lstdc_add(&yo, argv[i]);
-			i++;
-		}
-		ft_lstdc_print(yo);
+		ft_lstdc_add(&yo, argv[i]);
+		i++;
 	}
-	/*
+	return (yo);
+}
+
+
+
+int		main(int argc, char **argv)
+{
+	t_lstrep	*list;
+
+
 	char			*name_term;
 	struct termios	term;
 	char			buf[3];
 	char			*res;
 	t_win			win;
 
+	(void)argc;
+	list = ft_getargv(argv);
 	if ((name_term = getenv("TERM")) == NULL)
 		return (-1);
 	if (tgetent(NULL, name_term) == -1)
@@ -55,7 +63,10 @@ int		main(int argc, char **argv)
 	if (tcsetattr(0, TCSADRAIN, &term) == -1)
 		return (-1);
 
-
+	res = tgetstr("cl", NULL);
+	tputs(res, 0, ft_outc);
+	ft_lstdc_print(list);
+/*
 	while (69)
 	{
 		read(0, buf, 3);
@@ -76,7 +87,6 @@ int		main(int argc, char **argv)
 			win = ft_get_win_size();
 			dprintf(1, "col = %d, haut = %d\n", win.width, win.height);
 		}
-	}
-*/
+	}*/
 	return (0);
 }
