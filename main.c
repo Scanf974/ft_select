@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 10:55:58 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/18 14:17:57 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,23 @@ int		ft_outc(int c)
 	ft_putchar(c);
 	return (0);
 }
-int		main(void)
+int		main(int argc, char **argv)
 {
+	t_lstrep	*yo;
+	int			i;
+
+	yo = NULL;
+	if (argc > 1)
+	{
+		i = 1;
+		while (argv[i])
+		{
+			ft_lstdc_add(&yo, argv[i]);
+			i++;
+		}
+		ft_lstdc_print(yo);
+	}
+	/*
 	char			*name_term;
 	struct termios	term;
 	char			buf[3];
@@ -62,6 +77,6 @@ int		main(void)
 			dprintf(1, "col = %d, haut = %d\n", win.width, win.height);
 		}
 	}
-
+*/
 	return (0);
 }

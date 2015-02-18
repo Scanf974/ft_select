@@ -6,7 +6,7 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:43 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/18 06:09:44 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/18 12:35:23 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,10 +100,11 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "\033[37m"
 
 %.o: %.c
 	@echo "\033[36m   $^"
-	@$(CC) $(FLAGS) -I ./includes/ -c $^
+	@$(CC) $(FLAGS) -I ../includes/ -c $^
 
 clean:
 	@rm -f $(OBJ)
