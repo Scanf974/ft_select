@@ -22,8 +22,8 @@ t_lstrep	*ft_getargv(char **argv)
 	i = 1;
 	while (argv[i])
 	{
+		ft_lstdc_print(yo);
 		ft_lstdc_add(&yo, argv[i]);
-		ft_lstdc_print(*yo);
 		ft_putendl("\n------");
 		i++;
 	}

@@ -13,17 +13,17 @@
 #include "libldc.h"
 #include <stdio.h>
 
-void	ft_lstdc_print(t_lstrep rep)
+void	ft_lstdc_print(t_lstrep *rep)
 {
 	size_t		i;
 
 	i = 0;
-	while (i < rep.len)
+	while (rep && rep->first && i < rep->len)
 	{
-		ft_putstr(rep.first->str);
-		rep.first = rep.first->next;
+		ft_putstr(rep->first->str);
+		rep->first = rep->first->next;
 		i++;
-		if (i != rep.len)
+		if (i != rep->len)
 			ft_putchar('\n');
 	}
 }
