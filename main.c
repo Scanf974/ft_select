@@ -22,9 +22,7 @@ t_lstrep	*ft_getargv(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		ft_lstdc_print(yo);
-		ft_lstdc_add(&yo, argv[i]);
-		ft_putendl("\n------");
+		ft_lstdc_add_back(&yo, argv[i]);
 		i++;
 	}
 	return (yo);
@@ -42,6 +40,9 @@ int		main(int argc, char **argv)
 		list = ft_getargv(argv);
 		win = ft_get_info_for_win(list);
 		ft_tcg(0);
+		ft_make_instruction("cl", NULL);
+		ft_print_argv(list, win);
+		while (1);
 		//ft_make_instruction("cl", NULL);
 		/*
 		while (69)

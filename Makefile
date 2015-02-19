@@ -15,6 +15,7 @@ NAME = ft_select
 SRC = main.c \
 	  ft_get_info_for_win.c \
 	  ft_make_instruction.c \
+	  ft_print_argv.c \
 	  ft_outc.c \
 	  ft_tcg.c
 OBJ = $(SRC:.c=.o)

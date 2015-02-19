@@ -40,6 +40,7 @@ void				ft_tcg(char f);
 int					ft_outc(int c);
 t_win				ft_get_info_for_win(t_lstrep *argv);
 void				ft_make_instruction(char *id, char *aera);
+void				ft_print_argv(t_lstrep *rep, t_win win);
 
 #endif
 
