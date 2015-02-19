@@ -35,7 +35,7 @@ void				ft_lstdc_rinit(t_lstrep **lst);
 t_lstdc				*ft_lstdc_create(char *str);
 void				ft_lstdc_add(t_lstrep **rep, char *str);
 void				ft_lstdc_add_back(t_lstrep **rep, char *str);
-void				ft_lstdc_print(t_lstrep *rep);
+void				ft_lstdc_print(t_lstrep rep);
 void				ft_lstdc_delfirst(t_lstrep **rep);
 
 #endif
