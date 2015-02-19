@@ -13,7 +13,6 @@
 CC = gcc
 NAME = ft_select
 SRC = main.c \
-	  ft_get_win_size.c \
 	  ft_get_info_for_win.c \
 	  ft_outc.c \
 	  ft_tcg.c

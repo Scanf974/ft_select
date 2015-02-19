@@ -42,8 +42,7 @@ int		main(int argc, char **argv)
 		ft_tcg(0);
 		res = tgetstr("cl", NULL);
 		tputs(res, 0, ft_outc);
-		dprintf(1, "il y a %zu argv\n", win.nb_argv);
-
+		dprintf(1, "le plus long mot fait %zu\n", win.len_bigger);
 		/*
 		while (69)
 		{

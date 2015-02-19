@@ -32,9 +32,9 @@ typedef struct		s_win
 	int			width;
 	int			height;
 	size_t		nb_argv;
+	size_t		len_bigger;
 }					t_win;
 
-t_win				ft_get_win_size(void);
 void				ft_tcg(char f);
 int					ft_outc(int c);
 t_win				ft_get_info_for_win(t_lstrep *argv);
