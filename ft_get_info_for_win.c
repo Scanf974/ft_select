@@ -19,8 +19,8 @@ size_t	ft_get_len_bigger_word(t_lstrep *argv)
 
 t_win	ft_get_info_for_win(t_lstrep *argv)
 {
-	t_win	win;
-	 struct winsize        winsize;
+	t_win			win;
+	struct winsize	winsize;
 
 	ft_bzero(&win, sizeof(t_win));
 	win.nb_argv = argv->len;
@@ -28,5 +28,6 @@ t_win	ft_get_info_for_win(t_lstrep *argv)
 	win.width = winsize.ws_col;
 	win.height = winsize.ws_row;
 	win.len_bigger = ft_get_len_bigger_word(argv);
+	win.col = (win.nb_argv - 1) / win.height + 1;
 	return (win);
 }

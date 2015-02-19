@@ -25,7 +25,6 @@
 # include "libft.h"
 # include "libl.h"
 # include "libldc.h"
-# include "get_next_line.h"
 
 typedef struct		s_win
 {
@@ -33,6 +32,8 @@ typedef struct		s_win
 	int			height;
 	size_t		nb_argv;
 	size_t		len_bigger;
+	int			col;
+	int			raw;
 }					t_win;
 
 void				ft_tcg(char f);
