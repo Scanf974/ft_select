@@ -14,7 +14,6 @@
 # define LIBLDC_H
 
 # include <unistd.h>
-# include <string.h>
 # include <stdlib.h>
 # include "libft.h"
 

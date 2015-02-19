@@ -13,12 +13,6 @@
 #include "ft_select.h"
 #include <term.h>
 
-int		ft_outc(int c)
-{
-	ft_putchar(c);
-	return (0);
-}
-
 t_lstrep	*ft_getargv(char **argv)
 {
 	t_lstrep	*yo;
@@ -35,25 +29,22 @@ t_lstrep	*ft_getargv(char **argv)
 }
 
 
-
 int		main(int argc, char **argv)
 {
-	t_lstrep	*list;
-
-
-	char			*name_term;
-	struct termios	term;
-	char			buf[3];
+	t_lstrep		*list;
 	char			*res;
 	t_win			win;
 
 	if (argc > 1)
 	{
 		list = ft_getargv(argv);
+		win = ft_get_info_for_win(list);
 		ft_tcg(0);
 		res = tgetstr("cl", NULL);
 		tputs(res, 0, ft_outc);
-		ft_lstdc_print(list);
+		dprintf(1, "il y a %zu argv\n", win.nb_argv);
+
+		/*
 		while (69)
 		{
 			read(0, buf, 3);
@@ -69,7 +60,7 @@ int		main(int argc, char **argv)
 					res = tgetstr("nd", NULL);
 				tputs(res, 0, ft_outc);
 			}
-		}
+		}*/
 	}
 	return (0);
 }
