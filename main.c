@@ -40,9 +40,8 @@ int		main(int argc, char **argv)
 		list = ft_getargv(argv);
 		win = ft_get_info_for_win(list);
 		ft_tcg(0);
-		res = tgetstr("cl", NULL);
-		tputs(res, 0, ft_outc);
-		dprintf(1, "need %d colone\n", win.col);
+		ft_make_instruction("cl", NULL);
+		ft_make_instruction("cm", NULL);
 		/*
 		while (69)
 		{
@@ -60,6 +59,7 @@ int		main(int argc, char **argv)
 				tputs(res, 0, ft_outc);
 			}
 		}*/
+		ft_tcg(1);
 	}
 	return (0);
 }
