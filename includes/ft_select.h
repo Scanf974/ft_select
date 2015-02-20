@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:32:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 14:56:19 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 04:51:53 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 typedef struct		s_win
 {
+	t_lstrep	*list;
 	int			width;
 	int			height;
 	size_t		nb_argv;
@@ -36,11 +37,15 @@ typedef struct		s_win
 	int			raw;
 }					t_win;
 
+extern char			**ar;
+
 void				ft_tcg(char f);
 int					ft_outc(int c);
-t_win				ft_get_info_for_win(t_lstrep *argv);
+void				ft_refresh(void);
+void				ft_signal_handler(int sig);
+t_win				ft_get_info_for_win(void);
 void				ft_make_instruction(char *id, char *aera);
-void				ft_print_argv(t_lstrep *rep, t_win win);
+void				ft_print_argv(t_win win);
 
 #endif
 

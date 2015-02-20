@@ -6,47 +6,34 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 14:55:37 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 04:54:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
 
-t_lstrep	*ft_getargv(char **argv)
-{
-	t_lstrep	*yo;
-	int			i;
-
-	yo = NULL;
-	i = 1;
-	while (argv[i])
-	{
-		ft_lstdc_add_back(&yo, argv[i]);
-		i++;
-	}
-	return (yo);
-}
-
+char	**ar;
 
 int		main(int argc, char **argv)
 {
-	t_lstrep		*list;
 	char			*res;
 	t_win			win;
+	char			buf[3];
 
+	ar = argv;
 	if (argc > 1)
 	{
-		list = ft_getargv(argv);
-		win = ft_get_info_for_win(list);
 		ft_tcg(0);
 		ft_make_instruction("cl", NULL);
-		ft_print_argv(list, win);
-		while (1);
-		//ft_make_instruction("cl", NULL);
-		/*
-		while (69)
+		ft_refresh();
+		res = tgetstr("cm", NULL);
+		tputs(tgoto(res, 0, 0), 1, ft_outc);
+		while (1)
 		{
+			signal(SIGWINCH, ft_signal_handler);
+			signal(SIGTSTP, ft_signal_handler);
+			signal(SIGCONT, ft_signal_handler);
 			read(0, buf, 3);
 			if (buf[0] == '\033')
 			{
@@ -60,8 +47,8 @@ int		main(int argc, char **argv)
 					res = tgetstr("nd", NULL);
 				tputs(res, 0, ft_outc);
 			}
-		}*/
-		ft_tcg(1);
+		}
 	}
+	ft_tcg(1);
 	return (0);
 }

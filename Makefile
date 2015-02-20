@@ -6,7 +6,7 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/18 14:56:01 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/20 04:39:21 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME = ft_select
 SRC = main.c \
 	  ft_get_info_for_win.c \
 	  ft_make_instruction.c \
+	  ft_signal_handle.c \
 	  ft_print_argv.c \
+	  ft_refresh.c \
 	  ft_outc.c \
 	  ft_tcg.c
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 14:38:50 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 14:59:30 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 04:15:25 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	ft_tcg(char f)
 			exit(1);
 		if (tcgetattr(0, &term) == -1)
 			exit(1);
-		term.c_lflag &= ~(ICANON);
-		term.c_lflag &= ~(ECHO);
+		term.c_lflag &= ~(ICANON | ECHO | ISIG);
 		term.c_cc[VMIN] = 1;
 		term.c_cc[VTIME] = 0;
 		if (tcsetattr(0, TCSADRAIN, &term) == -1)
@@ -38,6 +37,7 @@ void	ft_tcg(char f)
 	{
 		term.c_lflag = term.c_lflag | ICANON;
 		term.c_lflag = term.c_lflag | ECHO;
+		term.c_lflag = term.c_lflag & ISIG;
 		tcsetattr(fd, TCSADRAIN, &term);
 	}
 }
