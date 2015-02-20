@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 04:54:26 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 05:38:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int		main(int argc, char **argv)
 	{
 		ft_tcg(0);
 		ft_make_instruction("cl", NULL);
-		ft_refresh();
+		win = ft_refresh();
 		res = tgetstr("cm", NULL);
 		tputs(tgoto(res, 0, 0), 1, ft_outc);
+		ft_putstr("\033[37;0;4m");
+		ft_putstr(win.list->first->str);
 		while (1)
 		{
 			signal(SIGWINCH, ft_signal_handler);
@@ -40,7 +42,9 @@ int		main(int argc, char **argv)
 				if (buf[2] == 'A')
 					res = tgetstr("up", NULL);
 				if (buf[2] == 'B')
+				{
 					res = tgetstr("do", NULL);
+				}
 				if (buf[2] == 'D')
 					res = tgetstr("le", NULL);
 				if (buf[2] == 'C')
