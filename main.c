@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 05:38:34 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 06:56:13 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,8 @@ int		main(int argc, char **argv)
 			read(0, buf, 3);
 			if (buf[0] == '\033')
 			{
-				if (buf[2] == 'A')
-					res = tgetstr("up", NULL);
-				if (buf[2] == 'B')
-				{
-					res = tgetstr("do", NULL);
-				}
-				if (buf[2] == 'D')
-					res = tgetstr("le", NULL);
-				if (buf[2] == 'C')
-					res = tgetstr("nd", NULL);
-				tputs(res, 0, ft_outc);
+				if (buf[2] == 'A' || buf[2] == 'B' || buf[2] == 'C' || buf[2] == 'D')
+					ft_move(win, buf[2]);
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:32:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 05:32:12 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 06:56:35 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ extern char			**ar;
 
 void				ft_tcg(char f);
 int					ft_outc(int c);
+void				ft_move(t_win win, char c);
 t_win				ft_refresh(void);
 void				ft_signal_handler(int sig);
 t_win				ft_get_info_for_win(void);

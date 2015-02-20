@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 05:32:30 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 06:49:33 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static void		handle_sigcont(void)
 void	ft_signal_handler(int sig)
 {
 	if (sig == SIGWINCH)
-	{
 		ft_refresh();
-	}
 	if (sig == SIGTSTP)
 		handle_sigtstp();
 	if (sig == SIGCONT)
