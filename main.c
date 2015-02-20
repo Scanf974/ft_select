@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 07:12:44 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 07:51:27 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include <term.h>
 
 char	**ar;
+t_win	win;
 
 int		main(int argc, char **argv)
 {
 	char			*res;
-	t_win			win;
 	char			buf[3];
 
 	ar = argv;

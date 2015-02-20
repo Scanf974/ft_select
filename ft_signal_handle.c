@@ -6,11 +6,13 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 06:49:33 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 07:50:53 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+t_win			win;
 struct termios	*g_dat;
 void	ft_signal_handler(int sig);
 
@@ -32,7 +34,7 @@ static void		handle_sigcont(void)
 void	ft_signal_handler(int sig)
 {
 	if (sig == SIGWINCH)
-		ft_refresh();
+		win = ft_refresh();
 	if (sig == SIGTSTP)
 		handle_sigtstp();
 	if (sig == SIGCONT)

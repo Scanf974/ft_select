@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:32:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 06:56:35 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/20 07:51:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct		s_win
 }					t_win;
 
 extern char			**ar;
+extern t_win		win;
 
 void				ft_tcg(char f);
 int					ft_outc(int c);
