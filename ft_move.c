@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 06:49:43 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 07:53:23 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/21 22:19:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_move(t_win win, char c)
 	if (c == 'A')
 	{
 		tputs(tgoto(res, x * (win.len_bigger + 1), y), 1, ft_outc);
-		ft_putstr("\033[0m");
+		ft_make_instruction("ue", NULL);
 		ft_putstr(win.list->first->str);
 		y--;
 		win.list->first = win.list->first->prev;
@@ -63,7 +63,8 @@ void	ft_move(t_win win, char c)
 		y = 0;
 	}
 	tputs(tgoto(res, x * (win.len_bigger + 1), y), 1, ft_outc);
-	ft_putstr("\033[37;0;4m");
+	X
+	ft_make_instrution("9////85
 	ft_putstr(win.list->first->str);
 	ft_putstr("\033[0m");
 }

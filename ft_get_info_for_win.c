@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:22:04 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/20 04:36:10 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/21 15:43:42 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_win			ft_get_info_for_win(void)
 
 	ft_bzero(&win, sizeof(t_win));
 	win.list = ft_get_argv();
-		ioctl(0, TIOCGWINSZ, &winsize); 
+	ioctl(0, TIOCGWINSZ, &winsize); 
 	win.nb_argv = win.list->len;
 	win.width = winsize.ws_col;
 	win.height = winsize.ws_row;
