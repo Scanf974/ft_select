@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 08:07:51 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 12:12:31 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		main(int argc, char **argv)
 	char			*res;
 	char			buf[4];
 
+	strlen("spoidjf");
 	win = (t_win *)malloc(sizeof(t_win));
 	signal(SIGWINCH, ft_signal_handler);
 	signal(SIGTSTP, ft_signal_handler);
@@ -33,10 +34,6 @@ int		main(int argc, char **argv)
 		//ft_make_instruction("vi", NULL);
 		ft_make_instruction("cl", NULL);
 		ft_print_argv();
-		res = tgetstr("cm", NULL);
-		tputs(tgoto(res, 0, 0), 1, ft_outc);
-		ft_make_instruction("us", NULL);
-		ft_putstr(win->list->first->str);
 		while (1)
 		{
 			read(0, buf, 4);
@@ -50,6 +47,8 @@ int		main(int argc, char **argv)
 				ft_del_link_by_id(win->pos - 1);
 				ft_refresh();
 			}
+			else if (buf[0] == ' ') 
+				ft_select();
 		}
 	}
 	ft_tcg(1);

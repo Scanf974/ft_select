@@ -6,7 +6,7 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/22 06:22:15 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/22 11:37:27 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = main.c \
 	  ft_print_argv.c \
 	  ft_get_argv.c \
 	  ft_refresh.c \
+	  ft_select.c \
 	  ft_move.c \
 	  ft_outc.c \
 	  ft_tcg.c
