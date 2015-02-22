@@ -6,7 +6,7 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/20 06:55:35 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/22 02:51:25 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = main.c \
 	  ft_make_instruction.c \
 	  ft_signal_handle.c \
 	  ft_print_argv.c \
+	  ft_get_argv.c \
 	  ft_refresh.c \
 	  ft_move.c \
 	  ft_outc.c \

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_refresh.c                                       :+:      :+:    :+:   */
+/*   ft_get_argv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/20 04:37:02 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 03:31:42 by bsautron         ###   ########.fr       */
+/*   Created: 2015/02/22 02:47:25 by bsautron          #+#    #+#             */
+/*   Updated: 2015/02/22 02:56:18 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-#include <term.h>
 
-t_win	win;
-
-void	ft_refresh(void)
+t_lstrep	*ft_get_argv(char **ar)
 {
-	ft_get_info_for_win();
-	ft_tcg(0);
-	//ft_make_instruction("ho", NULL);
-	ft_make_instruction("cl", NULL);
-	ft_print_argv();
+	t_lstrep	*yo;
+	int			i;
+
+	yo = NULL;
+	i = 1;
+	while (ar[i])
+	{
+		ft_lstdc_add_back(&yo, ar[i]);
+		i++;
+	}
+	return (yo);
 }

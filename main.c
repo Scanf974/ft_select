@@ -6,14 +6,13 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/21 22:22:10 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 03:43:45 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
 
-char	**ar;
 t_win	win;
 
 int		main(int argc, char **argv)
@@ -24,14 +23,15 @@ int		main(int argc, char **argv)
 	signal(SIGWINCH, ft_signal_handler);
 	signal(SIGTSTP, ft_signal_handler);
 	signal(SIGCONT, ft_signal_handler);
-	ar = argv;
 	if (argc > 1)
 	{
+		win.list = ft_get_argv(argv);
+		win.pos = 1;
+		ft_get_info_for_win();
 		ft_tcg(0);
-
 		//ft_make_instruction("vi", NULL);
 		ft_make_instruction("cl", NULL);
-		win = ft_refresh();
+		ft_print_argv();
 		res = tgetstr("cm", NULL);
 		tputs(tgoto(res, 0, 0), 1, ft_outc);
 		ft_make_instruction("us", NULL);
@@ -42,7 +42,7 @@ int		main(int argc, char **argv)
 			if (buf[0] == '\033')
 			{
 				if (buf[2] == 'A' || buf[2] == 'B' || buf[2] == 'C' || buf[2] == 'D')
-					ft_move(win, buf[2]);
+					ft_move(buf[2]);
 			}
 		}
 	}

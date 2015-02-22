@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/21 16:04:38 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 02:43:44 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,7 @@ void	ft_signal_handler(int sig)
 	i = 0;
 	if (sig == SIGWINCH)
 	{
-		while (i++ < win.nb_argv)
-		{
-			ft_strdel(&win.list->first->str);
-			win.list->first = win.list->first->next;
-		}
-		i = 0;
-		while (i++ < win.nb_argv)
-		{
-			save = win.list->first->next;
-			free(win.list->first);
-			win.list->first = save;
-		}
-		free(win.list);
-		win = ft_refresh();
+		ft_refresh();
 	}
 	if (sig == SIGTSTP)
 		handle_sigtstp();
