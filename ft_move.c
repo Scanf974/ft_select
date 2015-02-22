@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 06:49:43 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 13:53:28 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 14:21:46 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_win	*win;
 
 void	ft_move(char c)
 {
-	static int	x;
-	static int	y;
 	char		*res;
 	t_lstdc		*tmp;
 
@@ -52,7 +50,7 @@ void	ft_move(char c)
 		ft_make_instruction("se", NULL);
 		win->pos += win->height;
 	}
-	else if (c == 'D')
+	else if (c == 'D' && win->pos - win->raw < win->raw)
 	{
 		tputs(tgoto(res, ((win->pos - 1) / win->height) * (win->len_bigger + 1), (win->pos - 1) % win->height), 1, ft_outc);
 		if (tmp->selected == 1)
