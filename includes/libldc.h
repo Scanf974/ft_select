@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 21:57:44 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/18 13:25:44 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 04:08:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct		s_lstdc
 {
 	char			*str;
+	int				selected;
 	struct s_lstdc	*prev;
 	struct s_lstdc	*next;
 }					t_lstdc;
