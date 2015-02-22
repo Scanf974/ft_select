@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 16:28:54 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:40:08 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 16:08:11 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_print_argv(void)
 		tmp = ft_get_link_by_id(i);
 		res = tgetstr("cm", NULL);
 		tputs(tgoto(res, (i / win->height) * (win->len_bigger + 1), i % win->height), 1, ft_outc);
-		if (tmp->selected)
+		if (tmp->selected == 1)
 			ft_make_instruction("so", NULL);
 		ft_putstr(ft_get_link_by_id(i)->str);
 		ft_make_instruction("se", NULL);
@@ -35,10 +35,11 @@ void	ft_print_argv(void)
 		if (i > win->nb_argv)
 			i = 1;
 	}
+	tmp = ft_get_link_by_id(win->pos - 1);
 	tputs(tgoto(res, ((win->pos - 1) / win->height) * (win->len_bigger + 1), (win->pos - 1) % win->height), 1, ft_outc);
+	ft_make_instruction("us", NULL);
 	if (tmp->selected)
 		ft_make_instruction("so", NULL);
-	ft_make_instruction("us", NULL);
 	ft_putstr(ft_get_link_by_id(win->pos - 1)->str);
 	ft_make_instruction("ue", NULL);
 	ft_make_instruction("se", NULL);

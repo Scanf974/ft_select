@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:11:01 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 15:51:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int		main(int argc, char **argv)
 	signal(SIGTSTP, ft_signal_handler);
 	signal(SIGINT, ft_signal_handler);
 	signal(SIGCONT, ft_signal_handler);
+	signal(SIGTERM, ft_signal_handler);
+	signal(SIGKILL, ft_signal_handler);
+	signal(SIGQUIT, ft_signal_handler);
 	if (argc > 1)
 	{
 		win->list = ft_get_argv(argv);

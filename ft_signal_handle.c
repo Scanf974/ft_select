@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:38:46 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 15:47:30 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_signal_handler(int sig)
 	{
 		ft_refresh();
 	}
-	if (sig == SIGINT)
+	if (sig == SIGINT || sig == SIGTERM || sig == SIGKILL || sig == SIGQUIT)
 	{
 		ft_make_instruction("ho", NULL);
 		ft_tcg(1);
