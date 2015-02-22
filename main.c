@@ -6,22 +6,21 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:51:26 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 16:47:57 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
 
-t_win	*win;
+t_win	*g_win;
 
 int		main(int argc, char **argv)
 {
 	char			*res;
 	char			buf[4];
 
-	strlen("spoidjf");
-	win = (t_win *)malloc(sizeof(t_win));
+	g_win = (t_win *)malloc(sizeof(t_win));
 	signal(SIGWINCH, ft_signal_handler);
 	signal(SIGTSTP, ft_signal_handler);
 	signal(SIGINT, ft_signal_handler);
@@ -31,8 +30,8 @@ int		main(int argc, char **argv)
 	signal(SIGQUIT, ft_signal_handler);
 	if (argc > 1)
 	{
-		win->list = ft_get_argv(argv);
-		win->pos = 1;
+		g_win->list = ft_get_argv(argv);
+		g_win->pos = 1;
 		ft_get_info_for_win();
 		ft_tcg(0);
 		ft_make_instruction("vi", NULL);
@@ -48,7 +47,7 @@ int		main(int argc, char **argv)
 			}
 			else if (buf[0] == 8 || buf[0] == 127)
 			{
-				ft_del_link_by_id(win->pos - 1);
+				ft_del_link_by_id(g_win->pos - 1);
 				ft_refresh();
 			}
 			else if (buf[0] == ' ') 

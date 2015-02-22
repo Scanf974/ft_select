@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:32:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:33:52 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 16:45:50 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_win
 {
 	struct termios	term;
 	char			*name_term;
+	int				fd;
 	t_lstrep		*list;
 	int				width;
 	int				height;
@@ -40,7 +41,7 @@ typedef struct		s_win
 	size_t			pos;
 }					t_win;
 
-extern t_win		*win;
+extern t_win		*g_win;
 
 void				ft_tcg(char f);
 int					ft_outc(int c);

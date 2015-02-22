@@ -6,13 +6,13 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 06:12:30 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 08:07:46 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 16:50:51 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_win	*win;
+t_win	*g_win;
 
 void	ft_del_link_by_id(size_t id)
 {
@@ -22,12 +22,12 @@ void	ft_del_link_by_id(size_t id)
 	size_t	i;
 
 	i = 0;
-	tmp = win->list->first;
+	tmp = g_win->list->first;
 	while (i++ < id)
 		tmp = tmp->next;
 	prev = tmp->prev;
 	next = tmp->next;
 	prev->next = next;
 	next->prev = prev;
-	win->list->len--;
+	g_win->list->len--;
 }

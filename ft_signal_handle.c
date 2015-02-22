@@ -6,24 +6,25 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 15:47:30 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 17:02:15 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
+t_win			*g_win;
 void			ft_signal_handler(int sig);
 
 static void        handle_sigtstp(void)
 {
 	char    cp[2];
 
-	cp[0] = win->term.c_cc[VSUSP];
+	cp[0] = g_win->term.c_cc[VSUSP];
 	cp[1] = 0;
 	ft_make_instruction("cl", NULL);
 	ft_tcg(1);
 	signal(SIGTSTP, SIG_DFL);
-	ioctl(0, TIOCSTI, cp);
+	ioctl(g_win->fd, TIOCSTI, cp);
 }
 
 static void		handle_sigcont(void)
