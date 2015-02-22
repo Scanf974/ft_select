@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 16:28:54 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 12:53:37 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 15:40:08 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void	ft_print_argv(void)
 			i = 1;
 	}
 	tputs(tgoto(res, ((win->pos - 1) / win->height) * (win->len_bigger + 1), (win->pos - 1) % win->height), 1, ft_outc);
+	if (tmp->selected)
+		ft_make_instruction("so", NULL);
 	ft_make_instruction("us", NULL);
 	ft_putstr(ft_get_link_by_id(win->pos - 1)->str);
 	ft_make_instruction("ue", NULL);
+	ft_make_instruction("se", NULL);
 }

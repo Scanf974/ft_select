@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 12:12:31 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 15:11:01 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		main(int argc, char **argv)
 	win = (t_win *)malloc(sizeof(t_win));
 	signal(SIGWINCH, ft_signal_handler);
 	signal(SIGTSTP, ft_signal_handler);
+	signal(SIGINT, ft_signal_handler);
 	signal(SIGCONT, ft_signal_handler);
 	if (argc > 1)
 	{
@@ -31,7 +32,7 @@ int		main(int argc, char **argv)
 		win->pos = 1;
 		ft_get_info_for_win();
 		ft_tcg(0);
-		//ft_make_instruction("vi", NULL);
+		ft_make_instruction("vi", NULL);
 		ft_make_instruction("cl", NULL);
 		ft_print_argv();
 		while (1)
