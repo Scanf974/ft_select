@@ -6,7 +6,7 @@
 #    By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/18 05:41:35 by bsautron          #+#    #+#              #
-#    Updated: 2015/02/22 02:51:25 by bsautron         ###   ########.fr        #
+#    Updated: 2015/02/22 06:22:15 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = ft_select
 SRC = main.c \
 	  ft_get_info_for_win.c \
 	  ft_make_instruction.c \
+	  ft_get_link_by_id.c \
+	  ft_del_link_by_id.c \
 	  ft_signal_handle.c \
 	  ft_print_argv.c \
 	  ft_get_argv.c \

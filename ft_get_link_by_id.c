@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_argv.c                                      :+:      :+:    :+:   */
+/*   ft_get_link_by_id.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/22 02:47:25 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 06:07:35 by bsautron         ###   ########.fr       */
+/*   Created: 2015/02/22 05:21:16 by bsautron          #+#    #+#             */
+/*   Updated: 2015/02/22 07:38:12 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_win		*win;
+t_win	*win;
 
-t_lstrep	*ft_get_argv(char **ar)
+char	*ft_get_link_by_id(size_t id)
 {
-	t_lstrep	*yo;
-	int			i;
+	size_t	i;
+	t_lstdc	*tmp;
 
-	yo = NULL;
-	i = 1;
-	while (ar[i])
-	{
-		ft_lstdc_add_back(&yo, ar[i]);
-		i++;
-	}
-	return (yo);
+	i = 0;
+	tmp = win->list->first;
+	while (i++ < id)
+		tmp = tmp->next;
+	return (tmp->str);
 }

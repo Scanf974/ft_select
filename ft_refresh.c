@@ -6,14 +6,12 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:37:02 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 03:31:42 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 07:08:45 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
-
-t_win	win;
 
 void	ft_refresh(void)
 {

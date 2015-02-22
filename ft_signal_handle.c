@@ -6,13 +6,12 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 02:43:44 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/22 05:47:02 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_win			win;
 struct termios	*g_dat;
 void			ft_signal_handler(int sig);
 
