@@ -6,13 +6,11 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 02:47:25 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 06:07:35 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 17:10:32 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
-t_win		*win;
 
 t_lstrep	*ft_get_argv(char **ar)
 {
