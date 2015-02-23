@@ -12,7 +12,6 @@
 
 #include "ft_select.h"
 
-t_win			*g_win;
 void			ft_signal_handler(int sig);
 
 static void        handle_sigtstp(void)
@@ -21,7 +20,8 @@ static void        handle_sigtstp(void)
 
 	cp[0] = g_win->term.c_cc[VSUSP];
 	cp[1] = 0;
-	ft_make_instruction("cl", NULL);
+	ft_make_instruction("ho", NULL);
+	ft_make_instruction("cd", NULL);
 	ft_tcg(1);
 	signal(SIGTSTP, SIG_DFL);
 	ioctl(g_win->fd, TIOCSTI, cp);
