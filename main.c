@@ -44,11 +44,19 @@ int		main(int argc, char **argv)
 		ft_print_argv();
 		while (1)
 		{
+			ft_bzero(&buf, sizeof(char *));
 			read(0, buf, 4);
 			if (buf[0] == '\033')
 			{
 				if (buf[2] == 'A' || buf[2] == 'B' || buf[2] == 'C' || buf[2] == 'D')
 					ft_move(buf[2]);
+				if (buf[2] == 0)
+				{
+					ft_make_instruction("ho", NULL);
+					ft_make_instruction("cd", NULL);
+					ft_tcg(1);
+					exit(0);
+				}
 			}
 			else if (buf[0] == 8 || buf[0] == 127)
 			{
