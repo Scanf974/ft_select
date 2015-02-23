@@ -29,5 +29,7 @@ void	ft_del_link_by_id(size_t id)
 	next = tmp->next;
 	prev->next = next;
 	next->prev = prev;
+	if (id == 0)
+		g_win->list->first = next;
 	g_win->list->len--;
 }
