@@ -15,12 +15,8 @@
 
 t_win	*g_win;
 
-int		main(int argc, char **argv)
+static void	ft_attrape_moi_si_tu_peux(void)
 {
-	char			*res;
-	char			buf[4];
-
-	g_win = (t_win *)malloc(sizeof(t_win));
 	signal(SIGWINCH, ft_signal_handler);
 	signal(SIGTSTP, ft_signal_handler);
 	signal(SIGINT, ft_signal_handler);
@@ -28,7 +24,16 @@ int		main(int argc, char **argv)
 	signal(SIGTERM, ft_signal_handler);
 	signal(SIGKILL, ft_signal_handler);
 	signal(SIGQUIT, ft_signal_handler);
-	if (argc > 1)
+}
+
+int		main(int argc, char **argv)
+{
+	char			*res;
+	char			buf[4];
+
+	g_win = (t_win *)malloc(sizeof(t_win));
+	ft_attrape_moi_si_tu_peux();
+	if (argc > 1 && g_win)
 	{
 		g_win->list = ft_get_argv(argv);
 		g_win->pos = 1;

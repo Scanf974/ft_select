@@ -22,25 +22,30 @@ void	ft_print_argv(void)
 	t_lstdc		*tmp;
 
 	i = 0;
-	while (g_win->list && i < g_win->list->len)
+	if (g_win->col * (g_win->len_bigger + 1) > g_win->width)
+		ft_putendl_fd("La fenetre est trop petite", g_win->fd);
+	else
 	{
-		tmp = ft_get_link_by_id(i);
-		res = tgetstr("cm", NULL);
-		tputs(tgoto(res, (i / g_win->height) * (g_win->len_bigger + 1), i % g_win->height), 1, ft_outc);
-		if (tmp->selected == 1)
+		while (g_win->list && i < g_win->list->len)
+		{
+			tmp = ft_get_link_by_id(i);
+			res = tgetstr("cm", NULL);
+			tputs(tgoto(res, (i / g_win->height) * (g_win->len_bigger + 1), i % g_win->height), 1, ft_outc);
+			if (tmp->selected == 1)
+				ft_make_instruction("so", NULL);
+			ft_putstr_fd(ft_get_link_by_id(i)->str, g_win->fd);
+			ft_make_instruction("se", NULL);
+			i++;
+			if (i > g_win->nb_argv)
+				i = 1;
+		}
+		tmp = ft_get_link_by_id(g_win->pos - 1);
+		tputs(tgoto(res, ((g_win->pos - 1) / g_win->height) * (g_win->len_bigger + 1), (g_win->pos - 1) % g_win->height), 1, ft_outc);
+		ft_make_instruction("us", NULL);
+		if (tmp->selected)
 			ft_make_instruction("so", NULL);
-		ft_putstr_fd(ft_get_link_by_id(i)->str, g_win->fd);
+		ft_putstr_fd(ft_get_link_by_id(g_win->pos - 1)->str, g_win->fd);
+		ft_make_instruction("ue", NULL);
 		ft_make_instruction("se", NULL);
-		i++;
-		if (i > g_win->nb_argv)
-			i = 1;
 	}
-	tmp = ft_get_link_by_id(g_win->pos - 1);
-	tputs(tgoto(res, ((g_win->pos - 1) / g_win->height) * (g_win->len_bigger + 1), (g_win->pos - 1) % g_win->height), 1, ft_outc);
-	ft_make_instruction("us", NULL);
-	if (tmp->selected)
-		ft_make_instruction("so", NULL);
-	ft_putstr_fd(ft_get_link_by_id(g_win->pos - 1)->str, g_win->fd);
-	ft_make_instruction("ue", NULL);
-	ft_make_instruction("se", NULL);
 }

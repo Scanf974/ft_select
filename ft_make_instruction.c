@@ -17,6 +17,10 @@ void	ft_make_instruction(char *id, char *aera)
 {
 	char	*res;
 
-	res = tgetstr(id, &aera);
+	if ((res = tgetstr(id, &aera)) == NULL)
+	{
+		ft_tcg(1);
+		exit(1);
+	}
 	tputs(res, 0, ft_outc);
 }

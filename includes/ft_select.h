@@ -52,6 +52,7 @@ void				ft_get_info_for_win(void);
 void				ft_make_instruction(char *id, char *aera);
 void				ft_print_argv(void);
 t_lstdc				*ft_get_link_by_id(size_t id);
+void				ft_del_link_by_id(size_t id);
 void				ft_select(void);
 t_lstrep			*ft_get_argv(char **argv);
 
