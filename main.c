@@ -6,14 +6,12 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/23 17:45:32 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 17:54:33 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
-
-t_win	*g_win;
 
 static void	ft_attrape_moi_si_tu_peux(void)
 {
@@ -26,6 +24,14 @@ static void	ft_attrape_moi_si_tu_peux(void)
 	signal(SIGQUIT, ft_signal_handler);
 }
 
+static void	ft_esc(void)
+{
+	ft_make_instruction("ho", NULL);
+	ft_make_instruction("cd", NULL);
+	ft_tcg(1);
+	exit(0);
+}
+
 static void	ft_termcaps_a_nous_deux(void)
 {
 	char	*res;
@@ -35,24 +41,18 @@ static void	ft_termcaps_a_nous_deux(void)
 	{
 		ft_bzero(&buf, sizeof(char *));
 		read(0, buf, 4);
-		if (buf[0] == '\033')
-		{
-			if (buf[2] == 'A' || buf[2] == 'B' || buf[2] == 'C' || buf[2] == 'D')
-				ft_move(buf[2]);
-			if (buf[2] == 0)
-			{
-				ft_make_instruction("ho", NULL);
-				ft_make_instruction("cd", NULL);
-				ft_tcg(1);
-				exit(0);
-			}
-		}
-		else if (buf[0] == 8 || buf[0] == 127)
+		if (buf[0] == '\033' && (buf[2] == 'A' || buf[2] == 'B'
+					|| buf[2] == 'C' || buf[2] == 'D'))
+			ft_move(buf[2]);
+		if (buf[0] == '\033' && buf[2] == 0)
+			ft_esc();
+		else if ((buf[0] == '\033' && buf[2] == '3' && buf[3] == '~')
+				|| (buf[0] == 8 || buf[0] == 127))
 		{
 			ft_del_link_by_id(g_win->pos - 1);
 			ft_refresh();
 		}
-		else if (buf[0] == ' ') 
+		else if (buf[0] == ' ')
 			ft_select();
 		else if (buf[0] == '\n')
 			ft_return();
