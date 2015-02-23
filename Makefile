@@ -40,7 +40,6 @@ $(NAME): $(OBJ)
 
 libs:
 	make -C libft/
-	make -C libl/
 	make -C libldc/
 
 %.o: %.c
