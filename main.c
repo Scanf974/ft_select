@@ -31,9 +31,14 @@ int		main(int argc, char **argv)
 	char			*res;
 	char			buf[4];
 
-	g_win = (t_win *)malloc(sizeof(t_win));
+	if ((g_win = (t_win *)malloc(sizeof(t_win))) == NULL)
+	{
+		ft_putendl_fd("Malloc failed for g_win", 2);
+		exit(1);
+	}
+
 	ft_attrape_moi_si_tu_peux();
-	if (argc > 1 && g_win)
+	if (argc > 1)
 	{
 		g_win->list = ft_get_argv(argv);
 		g_win->pos = 1;
