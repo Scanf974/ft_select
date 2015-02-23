@@ -36,5 +36,10 @@ void	ft_return(void)
 	if (nb != 0)
 		ft_putchar('\n');
 	ft_tcg(1);
+	if (close(g_win->fd) == -1)
+	{
+		ft_putendl_fd("return(): close tty Failed", 2);
+		exit(1);
+	}
 	exit(0);
 }

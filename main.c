@@ -73,6 +73,11 @@ int		main(int argc, char **argv)
 			else if (buf[0] == '\n')
 				ft_return();
 		}
+		if (close(g_win->fd) == -1)
+		{
+			ft_putendl_fd("main(): close tty failed", 2);
+			exit(1);
+		}
 	}
 	ft_tcg(1);
 	return (0);

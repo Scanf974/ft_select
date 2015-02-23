@@ -23,6 +23,8 @@ static void        handle_sigtstp(void)
 	ft_make_instruction("ho", NULL);
 	ft_make_instruction("cd", NULL);
 	ft_tcg(1);
+	if (close(g_win->fd) == -1)
+		ft_putendl_fd("handle_sigstp(): close tty Failed", 2);
 	signal(SIGTSTP, SIG_DFL);
 	ioctl(g_win->fd, TIOCSTI, cp);
 }
@@ -48,6 +50,8 @@ void	ft_signal_handler(int sig)
 	{
 		ft_make_instruction("ho", NULL);
 		ft_tcg(1);
+		if (close(g_win->fd) == -1)
+			ft_putendl_fd("ft_signal_handler(): close tty failed", 2);
 		exit(1);
 	}
 	if (sig == SIGTSTP)
