@@ -22,6 +22,7 @@ SRC = main.c \
 	  ft_get_argv.c \
 	  ft_refresh.c \
 	  ft_select.c \
+	  ft_return.c \
 	  ft_move.c \
 	  ft_outc.c \
 	  ft_tcg.c

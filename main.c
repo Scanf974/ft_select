@@ -57,6 +57,8 @@ int		main(int argc, char **argv)
 			}
 			else if (buf[0] == ' ') 
 				ft_select();
+			else if (buf[0] == '\n')
+				ft_return();
 		}
 	}
 	ft_tcg(1);
