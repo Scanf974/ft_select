@@ -12,8 +12,6 @@
 
 #include "ft_select.h"
 
-t_win	*g_win;
-
 void	ft_select(void)
 {
 	t_lstdc		*tmp;
