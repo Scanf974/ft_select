@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 06:12:30 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 16:50:51 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:28:37 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_del_link_by_id(size_t id)
 	next = tmp->next;
 	prev->next = next;
 	next->prev = prev;
+	free(tmp->str);
+	free(tmp);
 	if (id == 0)
 		g_win->list->first = next;
 	g_win->list->len--;

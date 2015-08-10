@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 17:16:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/23 17:16:50 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:20:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,7 @@ void			ft_get_info_for_win(void)
 	g_win->len_bigger = ft_get_len_bigger_word(g_win->list);
 	g_win->col = (g_win->nb_argv - 1) / g_win->height + 1;
 	g_win->raw = ft_min(g_win->nb_argv, g_win->height);
+	g_win->sp = 1;
+	if (g_win->col * (g_win->len_bigger + 1) > g_win->width)
+		g_win->sp = 0;
 }

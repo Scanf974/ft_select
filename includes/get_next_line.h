@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/10 01:32:34 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/27 22:10:05 by bsautron         ###   ########.fr       */
+/*   Created: 2015/02/23 18:09:12 by bsautron          #+#    #+#             */
+/*   Updated: 2015/02/23 18:09:13 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -26,6 +27,6 @@ typedef struct				s_buff
 	int						len;
 }							t_buff;
 
-int						get_next_line(int const fd, char **line);
+int							get_next_line(int const fd, char **line);
 
 #endif

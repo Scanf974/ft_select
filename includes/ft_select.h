@@ -6,15 +6,13 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:32:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/22 16:45:50 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:16:55 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 # define FT_SELECT_H
 
-
-#include <stdio.h> //
 # include <termios.h>
 # include <unistd.h>
 # include <sys/ioctl.h>
@@ -23,7 +21,6 @@
 # include <sys/types.h>
 # include <signal.h>
 # include "libft.h"
-# include "libl.h"
 # include "libldc.h"
 
 typedef struct		s_win
@@ -39,6 +36,7 @@ typedef struct		s_win
 	int				col;
 	int				raw;
 	size_t			pos;
+	char			sp;
 }					t_win;
 
 extern t_win		*g_win;
@@ -58,4 +56,3 @@ void				ft_return(void);
 t_lstrep			*ft_get_argv(char **argv);
 
 #endif
-

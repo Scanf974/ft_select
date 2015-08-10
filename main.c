@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 05:34:11 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/23 17:54:33 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:22:04 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,19 @@ static void	ft_termcaps_a_nous_deux(void)
 	{
 		ft_bzero(&buf, sizeof(char *));
 		read(0, buf, 4);
-		if (buf[0] == '\033' && (buf[2] == 'A' || buf[2] == 'B'
+		if (g_win->sp && buf[0] == '\033' && (buf[2] == 'A' || buf[2] == 'B'
 					|| buf[2] == 'C' || buf[2] == 'D'))
 			ft_move(buf[2]);
 		if (buf[0] == '\033' && buf[2] == 0)
 			ft_esc();
-		else if ((buf[0] == '\033' && buf[2] == '3' && buf[3] == '~')
-				|| (buf[0] == 8 || buf[0] == 127))
+		else if (g_win->sp
+				&& ((buf[0] == '\033' && buf[2] == '3' && buf[3] == '~')
+				|| (buf[0] == 8 || buf[0] == 127)))
 		{
 			ft_del_link_by_id(g_win->pos - 1);
 			ft_refresh();
 		}
-		else if (buf[0] == ' ')
+		else if (g_win->sp && buf[0] == ' ')
 			ft_select();
 		else if (buf[0] == '\n')
 			ft_return();

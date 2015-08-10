@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 04:09:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/23 17:41:31 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:13:20 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			ft_signal_handler(int sig)
 	if (sig == SIGINT || sig == SIGTERM || sig == SIGKILL || sig == SIGQUIT)
 	{
 		ft_make_instruction("ho", NULL);
+		ft_make_instruction("cd", NULL);
 		ft_tcg(1);
 		if (close(g_win->fd) == -1)
 			ft_putendl_fd("ft_signal_handler(): close tty failed", 2);

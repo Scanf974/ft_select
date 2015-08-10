@@ -6,7 +6,7 @@
 /*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/21 16:28:54 by bsautron          #+#    #+#             */
-/*   Updated: 2015/02/23 17:31:04 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/02/23 18:20:13 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		ft_print_argv(void)
 		ft_tcg(1);
 		exit(0);
 	}
-	if (g_win->col * (g_win->len_bigger + 1) > g_win->width)
+	if (g_win->sp == 0)
 		ft_putendl_fd("La fenetre est trop petite", g_win->fd);
 	else
 	{
